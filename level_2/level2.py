@@ -3,22 +3,29 @@
  
 """hodor for level 2"""
 import requests
+from bs4 import BeautifulSoup
 
-
-page = "http://158.69.76.135/level2.php/"
-os = ("Mozilla/5.0 (Windows NT 10.0; Win64: x64; rv: 64.0) ""Gecko/20100101 Firefox/64.0")
-
+php = "http://158.69.76.135/level2.php"
+user_agent = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) "
+              "Gecko/20100101 Firefox/64.0")
 header = {
-	"os": os,
-	"referer": page
+    "User-Agent": user_agent,
+    "referer": php
+}
+vote = {
+    "id": "2780",
+    "holdthedoor": "Submit",
+    "key": ""
 }
 
-for i in range(0, 1024):
-	get = requests.get(page, headers = header)
-	cookies = get.cookies
-	dictionary = cookies.get_dict()
-	key = dictionary.get('HoldTheDoor')
-	payloader = {'id': '2780', 'key': key, 'holdthedoor': 'Enviar'}
+if __name__ == "__main__":
+    for i in range(0, 1024):
+        session = requests.session()
+        page = session.get(php, headers=header)
+        soup = BeautifulSoup(page.text, "html.parser")
 
-	result = requests.post(page, headers = header, data = payloader, cookies = cookies)
-	print("Vote n*{:d} send it with code {}".format(i, result, key))
+        hidden_value = soup.find("form", {"method": "post"})
+        hidden_value = hidden_value.find("input", {"type": "hidden"})
+        vote["key"] = hidden_value["value"]
+
+        session.post(php, headers=header, data=vote)
