@@ -9,4 +9,4 @@ payloader = {'id': '2780', 'holdthedoor': 'Enviar'}
 
 for i in range (0, 1024):
     loader = requests.post(page, data = payloader)
-    print("voto n* {:d} send it, code: {}".format(i, loader))
+    print("voto n* {:d} send it with code: {}".format(i, loader))
