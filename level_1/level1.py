@@ -1,7 +1,7 @@
 #!/usr/bin/python3
  
  
-"""hodor for level 0"""
+"""hodor for level 1"""
 import requests
 
 page = "http://158.69.76.135/level1.php/"
