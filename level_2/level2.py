@@ -6,7 +6,7 @@ import requests
 from bs4 import BeautifulSoup
 
 page = "http://158.69.76.135/level2.php/"
-os = ("Mozilla/5.0 (Windows NT 10.0; Win64: x64; rv: 64.0 ""Gecko/20100101 Firefox/64.0")
+os = ("Mozilla/5.0 (Windows NT 10.0; Win64: x64; rv: 64.0) ""Gecko/20100101 Firefox/64.0")
 
 header = {
 	"os": os,
