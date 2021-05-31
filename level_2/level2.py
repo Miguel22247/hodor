@@ -8,7 +8,7 @@ page = "http://158.69.76.135/level2.php"
 
 header = {
 	"referer": page,
-	"os": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0'
+	"User-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'
 }
 
 for i in range(0, 1024):
