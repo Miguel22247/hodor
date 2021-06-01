@@ -18,4 +18,4 @@ for i in range(0, 1024):
 	key = dictionary.get('HoldTheDoor')
 	payloader = {'id': '2780', 'key': key, 'holdthedoor': 'Enviar'}
 	result = requests.post(page, headers=header, data=payloader, cookies = cookies)
-	print("Vote n*{:d} send it with code {}".format(i, result, key))
+	print("Vote n*{:d} send it with code {} and key {}".format(i, result, key))
