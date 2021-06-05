@@ -8,5 +8,5 @@ page = "http://158.69.76.135/level0.php"
 payloader = {'id': '2780', 'holdthedoor': 'Enviar'}
 
 for i in range (0, 1024):
-    loader = requests.post(page, data = payloader)
-    print("voto n* {:d} send it with code: {}".format(i, loader))
+    payloader = requests.post(page, data = payloader)
+    print("vote n* {:d} send it with code: {}".format(i, payloader))

