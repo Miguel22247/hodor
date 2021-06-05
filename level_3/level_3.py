@@ -20,4 +20,4 @@ for i in range(0, 945):
     s = requests.Session()
     s.headers = header
     result = s.post(page, data=payloader, cookies=cookies)
-    print("Vote n*{:d} Code:{} Key:{}".format(i, result, key))
+    print("Vote n*{:d} send it with code {} and key {}".format(i, result, key))
